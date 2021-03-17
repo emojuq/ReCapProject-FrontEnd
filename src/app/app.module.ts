@@ -11,6 +11,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { CarDetailComponent } from './components/car/cardetail/cardetail.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

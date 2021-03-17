@@ -4,10 +4,11 @@ export interface Car{
     brandName: string;
     dailyPrice:number;
     carId:number; 
-    ımagePath:string;
+    imagePath:string;
     carImageDate:Date;
     brandId:number;
     colorId:number; 
     modelYear:string;
+    description:string;
 
 }

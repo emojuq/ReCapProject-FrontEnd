@@ -5,9 +5,9 @@ import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-car-detail',
-  templateUrl: './car-detail.component.html',
-  styleUrls: ['./car-detail.component.css']
+  selector: 'app-cardetail',
+  templateUrl: './cardetail.component.html',
+  styleUrls: ['./cardetail.component.css']
 })
 export class CarDetailComponent implements OnInit {
 
