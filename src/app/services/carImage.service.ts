@@ -9,11 +9,17 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class CarImageService {
+  imageBasePath = environment.baseUrl
 
   constructor(private httpClient:HttpClient) { }
 
   getCarImages(carId:number):Observable<ListResponseModel<CarImage>>{
     let newPath = environment.apiUrl+"carImages/getimagesbyid?carId="
     return this.httpClient.get<ListResponseModel<CarImage>>(newPath+carId)
+  }
+
+  getCarImagesByCarId(carId:number):Observable<ListResponseModel<CarImage>>{
+    let newPath=this.imageBasePath+"carimages/getimagesbycarid?carId="+carId;
+    return this.httpClient.get<ListResponseModel<CarImage>>(newPath)
   }
 }

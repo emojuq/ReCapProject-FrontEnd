@@ -10,16 +10,16 @@
 </div>
 <div class="row" *ngIf="dataLoaded==true">
   <div *ngFor="let car of cars" class="card" style="width: 20rem;">
-    <img src="{{imageBasePath}}/{{car.imagePath}}" class="card-img-top" alt=" Image" width="auto" height="auto">
+   
     <div  class="card-body">
       <h5 class="card-title"></h5>
     </div >
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Marka: {{car.brandName}}</li>
-      <li class="list-group-item">Renk: {{car.colorName}}</li>
-      <li class="list-group-item">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
-      <li class="list-group-item">Marka Modeli : {{car.carName}}</li>
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-danger">Marka: {{car.brandName}}</li>
+      <li class="list-group-item list-group-item-warning">Renk: {{car.colorName}}</li>
+      <li class="list-group-item list-group-item-info">Model Yılı: {{car.modelYear}}</li>
+      <li class="list-group-item list-group-item-light">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+      <li class="list-group-item list-group-item-dark">Marka Modeli : {{car.carName}}</li>
     </ul>
     <div class="card-body">
       <section style="float:left">
