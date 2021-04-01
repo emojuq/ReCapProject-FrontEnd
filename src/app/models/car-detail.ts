@@ -1,8 +1,10 @@
-import { Car } from "./car";
-import { CarImage } from "./carimage";
+
 
 export interface CarDetail{
-    car:Car;
-    ımagePath:CarImage[];
-    
+    carId:number;
+    carName:string;
+    brandName:string;
+    colorName:string;
+    dailyPrice:number;
+    modelYear:string;
 }

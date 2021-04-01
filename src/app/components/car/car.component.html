@@ -1,33 +1,43 @@
-<table class="table table-striped table-hover">
-  <thead class="table-dark">
-    <tr>
-  <h4>ARAÇ LİSTESİ</h4>
-    </tr>
-  </thead>
-  </table>
-<div *ngIf="dataLoaded==false" class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="row" *ngIf="dataLoaded==true">
-  <div *ngFor="let car of cars" class="card" style="width: 20rem;">
-   
-    <div  class="card-body">
-      <h5 class="card-title"></h5>
-    </div >
-    <ul class="list-group">
-      <li class="list-group-item list-group-item-danger">Marka: {{car.brandName}}</li>
-      <li class="list-group-item list-group-item-warning">Renk: {{car.colorName}}</li>
-      <li class="list-group-item list-group-item-info">Model Yılı: {{car.modelYear}}</li>
-      <li class="list-group-item list-group-item-light">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
-      <li class="list-group-item list-group-item-dark">Marka Modeli : {{car.carName}}</li>
-    </ul>
-    <div class="card-body">
-      <section style="float:left">
-        <button routerLink="/car/details/{{car.carId}}" type="button" class="btn btn-primary">Detaylar</button>
-      </section>
-      <section style="float: right">
-        <button type="button" class="btn btn-primary">Kirala</button>
-      </section>
-    </div>
+<div class="card">
+  <div class="card-header">
+    <label for="filterText" class="form-label"  class="fw-bold">Araçlar</label>
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+       placeholder="Araç Markası Ara"
+       style="border-radius: 10px; border-color: rgb(27, 7, 141);"
+    /></div>
+    
+    <table class="table table-striped table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th colspan="7">CARS</th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr *ngFor="let car of cars | carFilter:filterText" class="card" style="height: 19rem;" >
+          <div  class="card-body">
+            <h5 class="card-title"></h5>
+          </div >
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-danger" >Marka: {{car.brandName}}</li>
+              <li class="list-group-item list-group-item-warning">Renk: {{car.colorName}}</li>
+              <li class="list-group-item list-group-item-info">Model Yılı: {{car.modelYear}}</li>
+              <li class="list-group-item list-group-item-light">Fiyat: {{car.dailyPrice}} Türk Lirası</li>
+              <li class="list-group-item list-group-item-dark">Marka Modeli : {{car.carName}}</li>
+            </ul>
+          
+          
+          <td><a class="btn btn-primary" href="cars/cardetail/{{ car.carId }}" role="button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+            </svg>
+            Detay
+          </a></td>
+         
+        </tr>
+      </tbody>
+    </table>
   </div>
-</div>

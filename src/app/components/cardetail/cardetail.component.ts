@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Car } from 'src/app/models/car';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
-
+import { CarDetail } from '../../models/car-detail';
+import {RentalService} from '../../services/rental.service'
 @Component({
   selector: 'app-cardetail',
   templateUrl: './cardetail.component.html',
@@ -11,11 +11,13 @@ import { environment } from 'src/environments/environment';
 })
 export class CarDetailComponent implements OnInit {
 
-  cars: Car[] = [];
+  carDetails: CarDetail[] = [];
   dataLoaded = false;
   imageBasePath = environment.baseUrl;
+  rentalControl = false;
+  rentalMessage="";
 
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute) { }
+  constructor(private carService:CarService, private rentalService: RentalService, private activatedRoute:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
@@ -28,10 +30,16 @@ export class CarDetailComponent implements OnInit {
 
   getCarDetail(carId:number) {
     this.carService.getCarDetail(carId).subscribe((response) => {
-      this.cars = response.data;
+      this.carDetails = response.data;
       this.dataLoaded = true;
     });
   }
 
+  getrentaldetailsbyid(carId:number) {
+    this.rentalService.getRentalDetailsById(carId).subscribe((response) => { 
+      this.rentalControl=response.succes;
+      this.rentalMessage=response.message; 
+    });
+
   
-}
+}}

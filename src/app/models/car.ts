@@ -10,5 +10,7 @@ export interface Car{
     colorId:number; 
     modelYear:string;
     description:string;
+    status:boolean
+    customerId:number
 
 }

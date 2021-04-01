@@ -1,16 +1,32 @@
+<br>
+<br>
+<br>
 
+<div class="m-3">
+  <label for="exampleFormControlInput1" class="form-label" style="color:rgb(49, 141, 7);"  class="fw-bold">Renk Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" style="border-radius: 10px; border-color: rgb(74, 141, 7);" class="font-monospace" placeholder="Bir renk giriniz">
+</div>
 <ul class="list-group">
   <br>
-  <li  [class]=" getAllColorClass()" routerLink = "/cars">Tüm Renkler</li>
+  <li  [class]=" getAllColorClass()" routerLink = "/cars"  class="fw-bold">Tüm Renkler</li>
   <li (click)="setCurrentColor(color)"
   routerLink = "cars/color/{{color.id}}"
   [class]="getCurrentColorClass(color)"
-  *ngFor="let color of colors" 
+  *ngFor="let color of colors | filterColorPipe:filterText" class="font-monospace" 
   >
   {{color.name}}
 </li>
 </ul>
 <br>
-<h5 *ngIf="currentColor">{{currentColor.name}} seçtiniz</h5>
 
+<h5 *ngIf="currentColor">{{currentColor.name}} seçtiniz</h5>
+<button
+  routerLink="/cars"
+  (click)="clearFilter()"
+  type="button"
+  aria-current="true"
+  class="btn btn-info"
+>
+  Filtreyi Kaldır
+</button>
 

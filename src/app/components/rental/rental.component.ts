@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Rental } from 'src/app/models/rental';
+import { RentalDto } from 'src/app/models/rentalDto';
+import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
+import { ToastrService } from 'ngx-toastr';
+import { Car } from 'src/app/models/car';
 
 @Component({
   selector: 'app-rental',
@@ -8,10 +13,15 @@ import { RentalService } from 'src/app/services/rental.service';
   styleUrls: ['./rental.component.css']
 })
 export class RentalComponent implements OnInit {
-
+  
   rentals:Rental[]=[];
+  rentalDto:RentalDto
+  
+  
 
-  constructor(private rentalService:RentalService) { }
+  constructor(private rentalService:RentalService,private router:Router,
+    private customerService:CustomerService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getRentals();
@@ -23,4 +33,7 @@ export class RentalComponent implements OnInit {
     })
   }
 
+  
 }
+
+

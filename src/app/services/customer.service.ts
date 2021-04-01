@@ -11,7 +11,7 @@ import { ListResponseModel } from '../models/listResponseModel';
 })
 export class CustomerService {
 
-  
+  apiUrl=environment.apiUrl
 
   constructor(private httpClient:HttpClient) { }
 

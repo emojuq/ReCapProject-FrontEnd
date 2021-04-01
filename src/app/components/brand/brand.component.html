@@ -1,6 +1,21 @@
+<div class="m-3">
+  <label for="exampleFormControlInput1" class="form-label" style="color:rgb(141, 7, 7);"  class="fw-bold">Marka Ara</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" style="border-radius: 10px; border-color: rgb(141, 7, 7);"  class="font-monospace" placeholder="Bir marka giriniz">
+</div>
 <ul class="list-group">
-  <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
+  <li [class]="getAllBrandClass()" routerLink="/cars"  class="fw-bold">Tüm Markalar</li>
   <li (click)="setCurrentBrand(brand)" routerLink="/cars/brand/{{brand.brandId}}"
-    *ngFor="let brand of brands" [class]="getCurrentBrandClass(brand)">{{brand.name}}</li>
+    *ngFor="let brand of brands | filterBrandPipe:filterText" [class]="getCurrentBrandClass(brand)" class="font-monospace">{{brand.name}}</li>
 </ul>
+
+<button
+routerLink="/cars"
+(click)="clearFilter()"
+type="button"
+aria-current="true"
+class="btn btn-info"
+>
+Filtreyi Kaldır
+</button>
+
   
