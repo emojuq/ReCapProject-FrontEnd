@@ -12,7 +12,7 @@ import { RentalComponent } from './components/rental/rental.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: CarComponent },
   { path: 'cars', component: CarComponent },
-  { path: "cars/brand/:brandId", component: CarComponent },
+  { path: "cars/brand/:brandId", component: CarComponent },//buralari kullanmalisin
   { path: "cars/color/:colorId", component: CarComponent },
   { path: "car/details/:carId", component: CarDetailComponent },
 

@@ -17,7 +17,8 @@ import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {PaymentComponent} from './components/payment/payment.component'
 import {CarFilterPipe} from './pipes/car-filter.pipe'
-import {CarImageComponent} from './components/car-image/car-image.component'
+import {CarImageComponent} from './components/car-image/car-image.component';
+import { RentalAddComponent } from './components/rental-add/rental-add.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import {CarImageComponent} from './components/car-image/car-image.component'
     FilterBrandPipePipe,
     CarFilterPipe,
     PaymentComponent,
-    CarImageComponent
+    CarImageComponent,
+    RentalAddComponent
   ],
 
   imports: [

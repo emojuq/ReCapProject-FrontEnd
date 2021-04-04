@@ -10,7 +10,7 @@ import { CarImageService } from 'src/app/services/carImage.service';
 })
 export class CarImageComponent implements OnInit {
 
-  path="https://localhost:44341/uploads/CarImages/"
+  path="https://localhost:44341"
   carImages: CarImage[] = [];
   constructor(private carImageService: CarImageService,private activatedRouted: ActivatedRoute) {}
 

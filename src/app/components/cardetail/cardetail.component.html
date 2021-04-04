@@ -11,12 +11,13 @@
         <li class="list-group-item">Yıl:   {{ car.modelYear }}</li>
         <li class="list-group-item">Renk:  {{ car.colorName }}</li>
         <li class="list-group-item">Fiyat: {{ car.dailyPrice }} TL</li>
-
+        <button type="button"  class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#rentalModal">Kirala</button>
       </ul> 
       <br>
-      <button *ngIf="rentalControl == true" type="button"  class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#rentalModal">Kirala</button>
-      <button *ngIf="rentalControl == false" type="button" class="btn btn-secondary btn-lg" disabled>{{ rentalMessage }}</button>
+      <button (click)="rentalControl = true" type="button"  class="btn btn-success btn-lg" data-bs-toggle="modal" data-bs-target="#rentalModal">Kirala</button>
+      <button (click)="rentalControl = false" type="button" class="btn btn-secondary btn-lg" disabled>{{ rentalMessage }}</button>
     </div>  
   </div> 
 </div>
 
+<app-rental-add *ngIf="rentalControl == true" [car]="carDetails"></app-rental-add>

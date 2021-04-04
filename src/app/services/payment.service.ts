@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { PaymentCard } from '../models/payment'
 import { ResponseModel } from '../models/responseModel';
 
@@ -8,9 +9,10 @@ import { ResponseModel } from '../models/responseModel';
   providedIn: 'root',
 })
 export class PaymentService {
-  apiUrl = 'https://localhost:44335/api/payments/';
+  apiUrl = environment.apiUrl
   constructor(private httpClient: HttpClient) {}
 
   add(rental: PaymentCard): Observable<ResponseModel> {
-    return this.httpClient.post<ResponseModel>(this.apiUrl + 'add', rental);
+    let newPath=environment.apiUrl+"payments/paymentadd"
+    return this.httpClient.post<ResponseModel>(this.apiUrl + 'paymentadd', rental);
   }}
