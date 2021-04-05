@@ -21,12 +21,12 @@ car:Car;
   }
   
   getCarsByBrand(brandId:number):Observable<ListResponseModel<Car>>{
-    let newPath = environment.apiUrl + 'cars/getdetailsbybrandid?brandId='+brandId
+    let newPath = environment.apiUrl + 'cars/getcardetailsbybrandid?brandId='+brandId
     return this.httpClient.get<ListResponseModel<Car>>(newPath)
   }
 
   getCarsByColor(colorId:number):Observable<ListResponseModel<Car>>{
-    let newPath = environment.apiUrl + 'cars/getdetailsbycolorid?colorId='+colorId
+    let newPath = environment.apiUrl + 'cars/getcardetailsbycolorid?colorId='+colorId
     return this.httpClient.get<ListResponseModel<Car>>(newPath)
   }
 

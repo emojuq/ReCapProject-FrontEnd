@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarService } from 'src/app/services/car.service';
 import { environment } from 'src/environments/environment';
-import { CarDetail } from '../../models/car-detail';
+import { CarDetail } from '../../models/carDetailDto';
 import {RentalService} from '../../services/rental.service'
 @Component({
   selector: 'app-cardetail',

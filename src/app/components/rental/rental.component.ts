@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Rental } from 'src/app/models/rental';
-import { RentalDto } from 'src/app/models/rentalDto';
+import { RentalDto } from 'src/app/models/rentalDetailDto';
 import { CustomerService } from 'src/app/services/customer.service';
 import { RentalService } from 'src/app/services/rental.service';
 import { ToastrService } from 'ngx-toastr';
