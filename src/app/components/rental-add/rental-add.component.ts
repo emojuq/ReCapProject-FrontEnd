@@ -32,7 +32,6 @@ export class RentalAddComponent implements OnInit {
   findeksMsg:string;
   
   constructor(private customerService: CustomerService,
-              //private findeksService: FindeksService,
               private formBuilder: FormBuilder,             
               private router: Router,
               private datePipe: DatePipe,
@@ -107,7 +106,7 @@ export class RentalAddComponent implements OnInit {
       localStorage.setItem('payment-data',JSON.stringify(this.rentalAddForm.value));
       this.closeModal.nativeElement.click();
       this.toastr.warning("Ödeme sayfasına yönlendiriliyosunuz");
-      this.router.navigate(['/odeme']);
+      this.router.navigateByUrl("/odeme");
       }
       else {
         this.toastr.error("Form Hatalı");
